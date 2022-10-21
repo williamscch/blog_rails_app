@@ -19,15 +19,17 @@ class Post < ApplicationRecord
 
   def init_comments
     return unless new_record?
-     self.CommentsCounter = 0
+
+    self.CommentsCounter = 0
   end
 
   def init_likes
     return unless new_record?
-     self.LikesCounter = 0
+
+    self.LikesCounter = 0
   end
 
   def update_post_counter
-    user.increment!(:posts_counter, by = 1)
+    user.increment!(:posts_counter)
   end
 end

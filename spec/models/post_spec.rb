@@ -1,10 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  user = User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.',
-)
+  user = User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.')
   subject do
-    Post.new(user: user, title: 'LifeStyle',
+    Post.new(user:, title: 'LifeStyle',
              text: 'Nomad lifestyle is something really amazing, you should try it')
   end
 
@@ -36,7 +35,7 @@ RSpec.describe Post, type: :model do
     end
 
     it 'LikesCounter has to be an integer' do
-        expect(subject.LikesCounter).to match(Integer)
-      end
+      expect(subject.LikesCounter).to match(Integer)
+    end
   end
 end

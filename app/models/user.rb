@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_many :likes, foreign_key: 'user_id'
 
   after_initialize :init
-  
+
   validates :name, presence: true, length: { maximum: 30, too_long: 'Maximun for lenght is 30 char' }
   validates :posts_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
