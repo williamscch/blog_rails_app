@@ -34,7 +34,6 @@ RSpec.describe User, type: :model do
 
     it 'should return the 3 latest posts' do
       expect(subject.recent_posts).to eq(Post.order(created_at: :desc).limit(3))
-      # expect(subject.recent_posts).to eq(Post.last(3))
     end
 
     it 'should update the post counter' do
