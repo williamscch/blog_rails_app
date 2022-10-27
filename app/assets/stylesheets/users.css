@@ -1,6 +1,12 @@
+section {
+    width: 70%;
+    margin: auto;
+}
+
 .user-card-container {
   display: flex;
   flex-direction: column;
+  gap: 10px;
 }
 
 .user-card {
@@ -12,10 +18,12 @@
 }
 
 .user-img {
-  width: 100px;
-  height: auto;
+  height: 100%;
 }
 
 .user-info {
   width: 70%;
+  border: 3px solid black;
+  display: flex;
+  flex-direction: column;
 }

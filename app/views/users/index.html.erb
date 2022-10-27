@@ -7,10 +7,12 @@
           <img src=<%=user.photo%> alt='user-photo' class='user-img'>
         </div>
         <div class='user-info'>
-          <%=user.name%>
-          Number of Posts: <%=user.posts_counter%>
-        </div>
-      </article>
+          <%= link_to user_path(user) do%>
+            <h2><%=user.name%></h2>
+            <h3>Number of Posts: <%=user.posts_counter%></h3>
+          </div>
+        </article>
+      <%end%>
     <%end%>
   </div>
 </section>
