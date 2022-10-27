@@ -1,0 +1,21 @@
+.user-card-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-card {
+    display: flex;
+}
+
+.user-img-div {
+  width: 30%;
+}
+
+.user-img {
+  width: 100px;
+  height: auto;
+}
+
+.user-info {
+  width: 70%;
+}

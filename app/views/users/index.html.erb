@@ -1,9 +1,16 @@
 <section>
   <h1>Users endpoint</h1>
   <p>Here should be displayed a list of the users</p>
-  <div><% @users.each do |user|%>
-      <%=user.name%>
-      <img src=<%=user.photo%> alt='user-photo'>
+  <div class='user-card-container'><% @users.each do |user|%>
+      <article class='user-card'>
+        <div class='user-img-div'>
+          <img src=<%=user.photo%> alt='user-photo' class='user-img'>
+        </div>
+        <div class='user-info'>
+          <%=user.name%>
+          Number of Posts: <%=user.posts_counter%>
+        </div>
+      </article>
     <%end%>
   </div>
 </section>
