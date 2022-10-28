@@ -1,22 +1,23 @@
 .user-posts-card {
-    display: flex;
+  display: flex;
 }
 
 .user-posts-img-div {
-    width: 30%;
+  width: 30%;
 }
 
 .user-posts-info {
-    width: 70%;
-    border: 3px solid black;
-    display: flex;
-    flex-direction: column;
+  width: 70%;
+  border: 3px solid black;
+  display: flex;
+  flex-direction: column;
 }
 
-.user-posts-post, .user-posts-post-comments {
-    width: 100%;
-    border: 3px solid black;
-    display: flex;
-    flex-direction: column;
-    color: black;
+.user-posts-post,
+.user-posts-post-comments {
+  width: 100%;
+  border: 3px solid black;
+  display: flex;
+  flex-direction: column;
+  color: black;
 }

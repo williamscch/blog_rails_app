@@ -1,9 +1,9 @@
 section {
-    width: 70%;
-    margin: auto;
-    display: flex;
-    gap: 50px;
-    flex-direction: column;
+  width: 70%;
+  margin: auto;
+  display: flex;
+  gap: 50px;
+  flex-direction: column;
 }
 
 .user-card-container {
@@ -13,7 +13,7 @@ section {
 }
 
 .user-card {
-    display: flex;
+  display: flex;
 }
 
 .user-img-div {
@@ -31,7 +31,8 @@ section {
   flex-direction: column;
 }
 
-.user-bio, .user-post {
+.user-bio,
+.user-post {
   width: 100%;
   border: 3px solid black;
   display: flex;
