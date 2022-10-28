@@ -1,6 +1,9 @@
 section {
     width: 70%;
     margin: auto;
+    display: flex;
+    gap: 50px;
+    flex-direction: column;
 }
 
 .user-card-container {
@@ -23,6 +26,13 @@ section {
 
 .user-info {
   width: 70%;
+  border: 3px solid black;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-bio, .user-post {
+  width: 100%;
   border: 3px solid black;
   display: flex;
   flex-direction: column;

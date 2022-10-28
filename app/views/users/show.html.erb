@@ -1,10 +1,11 @@
     
 <h1>Users endpoint</h1>
 <p>Here should be displayed the selected user information</p>
-<section clas='bio'>
-  <div class="user-header">
-    <div class="user-image">
-      <img src="<%= @user.photo %>">
+<section>
+<%= link_to "Back", users_path(@users)%>
+  <div class="user-card">
+    <div class="user-img-div">
+      <img src="<%= @user.photo %>" class='user-img'>
     </div>
     <div class="user-info">
       <h2>
@@ -24,7 +25,7 @@
     </p>
   </div>
   <% @user.recent_posts.each do |post| %>
-    <div class="single-user-single-post">
+    <div class="user-post">
       <h3>Post <%= post.id %></h3>
       <p><%= post.text %></p>
       <span>Comments: <%= post.CommentsCounter %></span>
