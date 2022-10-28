@@ -1,18 +1,18 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>WilliamsBlog</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-  </head>
-
-  <body>
-    <%= yield %>
-    <h1>Users endpoint</h1>
-    <p>Here should be displayed a list of the users</p>
-  </body>
-</html>
+<section>
+  <h1>Users endpoint</h1>
+  <p>Here should be displayed a list of the users</p>
+  <div class='user-card-container'><% @users.each do |user|%>
+      <article class='user-card'>
+        <div class='user-img-div'>
+          <img src=<%=user.photo%> alt='user-photo' class='user-img'>
+        </div>
+        <div class='user-info'>
+          <%= link_to user_path(user) do%>
+            <h2><%=user.name%></h2>
+            <h3>Number of Posts: <%=user.posts_counter%></h3>
+          </div>
+        </article>
+      <%end%>
+    <%end%>
+  </div>
+</section>

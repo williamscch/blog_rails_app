@@ -3,7 +3,7 @@ class Post < ApplicationRecord
   has_many :comments
   has_many :likes
 
-  after_initialize :update_post_counter
+  after_save :update_post_counter
   after_initialize :init_comments
   after_initialize :init_likes
 
@@ -12,7 +12,7 @@ class Post < ApplicationRecord
   validates :LikesCounter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
   def recent_comments
-    comments.order(created_at: :desc).limit(5)
+    comments.last(5)
   end
 
   private

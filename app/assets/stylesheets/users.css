@@ -1,0 +1,40 @@
+section {
+  width: 70%;
+  margin: auto;
+  display: flex;
+  gap: 50px;
+  flex-direction: column;
+}
+
+.user-card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.user-card {
+  display: flex;
+}
+
+.user-img-div {
+  width: 30%;
+}
+
+.user-img {
+  height: 100%;
+}
+
+.user-info {
+  width: 70%;
+  border: 3px solid black;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-bio,
+.user-post {
+  width: 100%;
+  border: 3px solid black;
+  display: flex;
+  flex-direction: column;
+}
