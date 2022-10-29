@@ -1,8 +1,7 @@
-    
 <h1>Users endpoint</h1>
 <p>Here should be displayed the selected user information</p>
 <section>
-<%= link_to "Back", users_path(@users)%>
+  <%= link_to "Back", users_path(@users)%>
   <div class="user-card">
     <div class="user-img-div">
       <img src="<%= @user.photo %>" class='user-img'>
@@ -34,5 +33,8 @@
   <% end %>
   <%= link_to user_posts_path(@user) do %>
     <button type="button" class="see-all-posts-button">See all posts</button>
+  <% end %>
+  <%= link_to new_user_post_path(@user) do %>
+    <button type="button" class="see-all-posts-button">Create new post</button>
   <% end %>
   <section>
