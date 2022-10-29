@@ -5,16 +5,17 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
   <body>
-  <h1>Welcome to The Williams Blog</h1>
+    <h1>Welcome to The Williams Blog</h1>
+    <%= link_to root_path do %>
+      HOME
+    <% end %>
     <%= yield %>
     <footer>
-    <h3>Developed by Williams Colmenares, all rights reserved. 2022</h3>
+      <h3>Developed by Williams Colmenares, all rights reserved. 2022</h3>
     </footer>
   </body>
 </html>
