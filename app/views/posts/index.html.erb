@@ -26,7 +26,7 @@
           <span>Likes: <%= post.LikesCounter %></span>
         </div>
         <div class="user-posts-post-comments">
-          <% post.recent_comments.each do |comment| %>
+          <% post.recent_comments.includes(:user).each do |comment| %>
             <div class="single-user-single-post-single-comment">
               <p><%= comment.user.name %>: <%= comment.text %></p>
             </div>

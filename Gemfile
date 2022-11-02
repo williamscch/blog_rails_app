@@ -46,6 +46,8 @@ gem 'bootsnap', require: false
 
 gem 'byebug', '~> 9.0', '>= 9.0.6'
 
+gem 'bullet', group: 'development'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
