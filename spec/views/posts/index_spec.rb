@@ -1,14 +1,21 @@
 require 'rails_helper'
 
-Rspec.describe 'user/index endpoint', type: system do
-  before do
-    driven_by(:rack_tests)
+RSpec.describe 'user/index endpoint', type: :feature do
+  before(:each) do
+    @user1 = User.create(
+      name: 'Jhon First',
+      photo: 'https://randomuser.me/api/portraits/men/9.jpg',
+      bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+    )
+    @user2 = User.create(
+      name: 'Jhon Second',
+      photo: 'https://randomuser.me/api/portraits/men/9.jpg',
+      bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+    )
+    visit users_path
   end
-  context 'the username of all the users is visible' do
-    before do
-      @user = User.create(name: 'Garnacho Guedes', photo: 'https://randomuser.me/api/portraits/men/33.jpg',
-                          bio: 'I am a chef on California Hard Rock Hotel')
-      visit root_path
-    end
+  it 'should shows the user names' do
+    expect(page).to have_content('Jhon First')
+    expect(page).to have_content('Jhon Second')
   end
 end
