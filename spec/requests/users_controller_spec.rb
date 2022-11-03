@@ -23,11 +23,6 @@ RSpec.describe 'User response', type: :request do
 
   context 'users/show endpoint' do
     before(:example) { get '/users/1' }
-    # before(:each) do
-    #   User.create(name: 'Garnacho Guedes', photo: 'https://randomuser.me/api/portraits/men/33.jpg',
-    #               bio: 'I am a chef on California Hard Rock Hotel')
-    # end
-
     it 'get users render the template index' do
       expect(response).to render_template(:show)
     end

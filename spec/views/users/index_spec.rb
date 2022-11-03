@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'user/index endpoint', type: :feature do
   before(:each) do
+    DatabaseCleaner.clean_with(:truncation)
     @user1 = User.create(
       id: 145,
       name: 'Jhon First',
@@ -27,14 +28,14 @@ RSpec.describe 'user/index endpoint', type: :feature do
   end
 
   it 'should shows the profile picture of each user' do
-    expect(page).to have_selector '.user-img', minimum: 2
+    expect(page).to have_selector '.user-img', count: 2
     puts page
   end
   it 'should shows the number of posts each user has written' do
-    expect(page).to have_content("Number of Posts: 1", count: 2)
+    expect(page).to have_content('Number of Posts: 1', count: 2)
   end
-  it 'When I click on a user, I am redirected to that user show page' do 
-  click_on('Jhon Second')
-  expect(page.current_path).to eql('/users/146')
+  it 'When I click on a user, I am redirected to that user show page' do
+    click_on('Jhon Second')
+    expect(page.current_path).to eql('/users/146')
   end
 end
