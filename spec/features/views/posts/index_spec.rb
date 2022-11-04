@@ -3,18 +3,10 @@ require 'rails_helper'
 RSpec.describe 'User Posts index page' do
   before(:each) do
     DatabaseCleaner.clean_with(:truncation)
-    @user1 = User.create(
-      name: 'Jhon First',
-      photo: 'https://randomuser.me/api/portraits/men/9.jpg',
-      bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-    )
-
-    @user2 = User.create(
-      name: 'Jhon Second',
-      photo: 'https://randomuser.me/api/portraits/men/9.jpg',
-      bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-    )
-
+    @user1 = User.create(name: 'Jhon First', photo: 'https://randomuser.me/api/portraits/men/9.jpg',
+                         bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.')
+    @user2 = User.create(name: 'Jhon Second', photo: 'https://randomuser.me/api/portraits/men/9.jpg',
+                         bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.')
     @post1 = Post.create(title: 'LifeStyle',
                          text: 'Nomad lifestyle is something really amazing, you should try it', user_id: @user1.id)
     @post2 = Post.create(title: 'LifeStyle2',
@@ -23,43 +15,18 @@ RSpec.describe 'User Posts index page' do
                          text: 'Nomad lifestyle is something really amazing, you should try it', user_id: @user1.id)
     @post4 = Post.create(title: 'LifeStyle4',
                          text: 'Nomad lifestyle is something really amazing, you should try it', user_id: @user1.id)
-
-    @comment1 = Comment.create(
-      user_id: @user2.id,
-      post_id: @post1.id,
-      text: 'I really like this post. This is the comment number'
-    )
-
-    @comment2 = Comment.create(
-      user_id: @user2.id,
-      post_id: @post1.id,
-      text: 'I really like this post. This is the comment number'
-    )
-
-    @comment3 = Comment.create(
-      user_id: @user2.id,
-      post_id: @post1.id,
-      text: 'I really like this post. This is the comment number'
-    )
-
-    @comment4 = Comment.create(
-      user_id: @user2.id,
-      post_id: @post1.id,
-      text: 'I really like this post. This is the comment number'
-    )
-
-    @comment5 = Comment.create(
-      user_id: @user2.id,
-      post_id: @post1.id,
-      text: 'I really like this post. This is the comment number'
-    )
-
-    @comment6 = Comment.create(
-      user_id: @user2.id,
-      post_id: @post1.id,
-      text: 'I really like this post. This is the comment number'
-    )
-
+    @comment1 = Comment.create(user_id: @user2.id, post_id: @post1.id,
+                               text: 'I really like this post. This is the comment number')
+    @comment2 = Comment.create(user_id: @user2.id, post_id: @post1.id,
+                               text: 'I really like this post. This is the comment number')
+    @comment3 = Comment.create(user_id: @user2.id, post_id: @post1.id,
+                               text: 'I really like this post. This is the comment number')
+    @comment4 = Comment.create(user_id: @user2.id, post_id: @post1.id,
+                               text: 'I really like this post. This is the comment number')
+    @comment5 = Comment.create(user_id: @user2.id, post_id: @post1.id,
+                               text: 'I really like this post. This is the comment number')
+    @comment6 = Comment.create(user_id: @user2.id, post_id: @post1.id,
+                               text: 'I really like this post. This is the comment number')
     visit user_posts_path(@user1)
   end
 

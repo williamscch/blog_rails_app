@@ -3,57 +3,24 @@ require 'rails_helper'
 RSpec.describe 'User Posts index page' do
   before(:each) do
     DatabaseCleaner.clean_with(:truncation)
-    @user1 = User.create(
-      name: 'Jhon First',
-      photo: 'https://randomuser.me/api/portraits/men/9.jpg',
-      bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-    )
-
-    @user2 = User.create(
-      name: 'Jhon Second',
-      photo: 'https://randomuser.me/api/portraits/men/9.jpg',
-      bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-    )
-
+    @user1 = User.create(name: 'Jhon First', photo: 'https://randomuser.me/api/portraits/men/9.jpg',
+                         bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.')
+    @user2 = User.create(name: 'Jhon Second', photo: 'https://randomuser.me/api/portraits/men/9.jpg',
+                         bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.')
     @post1 = Post.create(title: 'LifeStyle',
                          text: 'Nomad lifestyle is something really amazing, you should try it', user_id: @user1.id)
-
-    @comment1 = Comment.create(
-      user_id: @user2.id,
-      post_id: @post1.id,
-      text: 'I really like this post. This is the comment number 1'
-    )
-
-    @comment2 = Comment.create(
-      user_id: @user2.id,
-      post_id: @post1.id,
-      text: 'I really like this post. This is the comment number 2'
-    )
-
-    @comment3 = Comment.create(
-      user_id: @user2.id,
-      post_id: @post1.id,
-      text: 'I really like this post. This is the comment number 3'
-    )
-
-    @comment4 = Comment.create(
-      user_id: @user2.id,
-      post_id: @post1.id,
-      text: 'I really like this post. This is the comment number 4'
-    )
-
-    @comment5 = Comment.create(
-      user_id: @user2.id,
-      post_id: @post1.id,
-      text: 'I really like this post. This is the comment number 5'
-    )
-
-    @comment6 = Comment.create(
-      user_id: @user2.id,
-      post_id: @post1.id,
-      text: 'I really like this post. This is the comment number 6'
-    )
-
+    @comment1 = Comment.create(user_id: @user2.id, post_id: @post1.id,
+                               text: 'I really like this post. This is the comment number 1')
+    @comment2 = Comment.create(user_id: @user2.id, post_id: @post1.id,
+                               text: 'I really like this post. This is the comment number 2')
+    @comment3 = Comment.create(user_id: @user2.id, post_id: @post1.id,
+                               text: 'I really like this post. This is the comment number 3')
+    @comment4 = Comment.create(user_id: @user2.id, post_id: @post1.id,
+                               text: 'I really like this post. This is the comment number 4')
+    @comment5 = Comment.create(user_id: @user2.id, post_id: @post1.id,
+                               text: 'I really like this post. This is the comment number 5')
+    @comment6 = Comment.create(user_id: @user2.id, post_id: @post1.id,
+                               text: 'I really like this post. This is the comment number 6')
     visit user_post_path(@user1, @post1)
   end
 
@@ -90,5 +57,22 @@ RSpec.describe 'User Posts index page' do
     expect(page).to have_content @comment4.text
     expect(page).to have_content @comment5.text
     expect(page).to have_content @comment6.text
+  end
+
+  ## Extra tests
+
+  it 'should have a like me button' do
+    expect(page).to have_button('LIKE ME!')
+  end
+
+  it 'should update the likes counter after pressing the likes button' do
+    click_on 'LIKE ME!'
+    expect(page).to have_text 'Likes: 1'
+  end
+
+  it 'should add a new comment and display it on the page' do
+    fill_in 'comment_text', with: 'Testing comment'
+    click_on 'Submit'
+    expect(page).to have_text 'Testing comment'
   end
 end
