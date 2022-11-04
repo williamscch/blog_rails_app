@@ -52,4 +52,9 @@ RSpec.describe 'User Show Page', type: :feature do
     click_link 'See all posts'
     expect(page.current_path).to eql("/users/#{@user1.id}/posts")
   end
+
+  it 'When I click create new post, it redirects me to new post page' do
+    click_link 'Create new post'
+    expect(page.current_path).to eql("/users/#{@user1.id}/posts/new")
+  end
 end
