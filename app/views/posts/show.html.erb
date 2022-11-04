@@ -1,4 +1,3 @@
- 
 <h1>Posts endpoint</h1>
 <p>Here should be displayed the users selected post</p>
 <main>
@@ -6,14 +5,14 @@
     <%= link_to "Back", :back , :class => "link-pages" %>
     <div>
       <div class="user-posts-post">
-        <h3><%= @post.title %></h3>
+        <h3><%= @post.title %> by: <%= @post.user.name%></h3>
         <p><%= @post.text %></p>
         <span>Comments: <%= @post.CommentsCounter %></span>
         <span>Likes: <%= @post.LikesCounter %></span>
         <%= render "likes/button" %>
       </div>
       <div class="user-posts-post-comments">
-        <% @post.comments.each do |comment| %>
+        <% @post.comments.includes(:user).each do |comment| %>
           <div class="single-user-single-post-single-comment">
             <p><strong><%= comment.user.name %>: <%= comment.text %></strong></p>
           </div>

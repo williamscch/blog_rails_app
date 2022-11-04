@@ -54,9 +54,13 @@ gem 'byebug', '~> 9.0', '>= 9.0.6'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+  gem 'bullet', group: 'development'
+  gem 'database_cleaner'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'rails-controller-testing'
   gem 'rspec-rails'
+  gem 'uniform_notifier', '~> 1.12', '>= 1.12.1'
+  gem 'xmpp4r', '~> 0.5.6'
 end
 
 group :development do

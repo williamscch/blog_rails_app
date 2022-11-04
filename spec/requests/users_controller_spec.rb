@@ -1,4 +1,4 @@
-require 'rails_helper'
+require_relative '../rails_helper'
 
 RSpec.describe 'User response', type: :request do
   context 'users endpoint' do
@@ -22,8 +22,7 @@ RSpec.describe 'User response', type: :request do
   end
 
   context 'users/show endpoint' do
-    before(:example) { get '/users/:id' }
-
+    before(:example) { get '/users/1' }
     it 'get users render the template index' do
       expect(response).to render_template(:show)
     end

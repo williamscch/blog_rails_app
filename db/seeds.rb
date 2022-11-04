@@ -17,8 +17,8 @@ User.create(name: "Antuan Russo", photo:"https://randomuser.me/api/portraits/men
 User.create(name: "Georgina Ronaldo", photo:"https://randomuser.me/api/portraits/women/46.jpg" , bio: "I dont like to talk with people, I like dogs")
 
 100.times do |post|
-  Post.create(title: "#{post}-Post",
-      text: "This is the post number #{post} first posts to populate the db from the seed file wiht development purposes",
+  Post.create(title: "Post Number #{post}",
+      text: "This is the post #{post} created to populate the db from the seed file wiht development purposes",
       user_id: (rand(1..9)))
 end
 
@@ -26,7 +26,7 @@ end
   Comment.create(
       user_id: (rand(1..9)),
       post_id: (rand(1..100)),
-      text: "I really like this post. This is the comment number #{comment} created from the seed file to populate the db" )
+      text: "I really like this post. This is the comment #{comment} created from the seed file to populate the db" )
 end
 
 300.times do |like|
