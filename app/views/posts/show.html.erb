@@ -19,6 +19,9 @@
           <div class="single-user-single-post-single-comment">
             <p><strong><%= comment.user.name %>: <%= comment.text %></strong></p>
           </div>
+          <%if can? :destroy , comment%>
+            <%= link_to "Delete Comment" ,  user_post_comment_path(@user, @post, comment), data: { turbo_method: "delete", turbo_confirm: "Are you sure to delete" } ,class: "no-underline red-color margin"%>
+          <%end%>
         <% end %>
       </div>
       <%= render "comments/form" %>

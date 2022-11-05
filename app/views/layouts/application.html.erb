@@ -15,11 +15,13 @@
         <li><button type="button"> <%= link_to root_path do %>
               HOME
             <% end %></button></li>
-        <li>  <%= link_to new_user_post_path(current_user.id) do %>
-            <button type="button" class="create-new-post-button">Create new post</button>
-          <% end %></li>
-        <li><%= button_to "LOG-OUT" , destroy_user_session_path, method: :delete, data: { turbo: false }, :class => 'logout'%></li>
-        <li>Your account: <%=current_user.name%></li>
+        <% if signed_in? %>
+          <li>  <%= link_to new_user_post_path(current_user.id) do %>
+              <button type="button" class="create-new-post-button">Create new post</button>
+            <% end %></li>
+          <li><%= button_to "LOG-OUT" , destroy_user_session_path, method: :delete, data: { turbo: false }, :class => 'logout'%></li>
+          <li>Your account: <%=current_user.name%></li>
+        <% end %>
       </ul>
     </nav>
     <p class="notice"><%= notice %></p>
