@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Williams Blog</title>
+    <title>The Williams Blog</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -9,10 +9,19 @@
     <%= javascript_importmap_tags %>
   </head>
   <body>
-    <h1>Welcome to The Williams Blog</h1>
-    <%= link_to root_path do %>
-      HOME
-    <% end %>
+    <nav>
+      <ul>
+        <li>The Williams Blog</li>
+        <li><button type="button"> <%= link_to root_path do %>
+              HOME
+            <% end %></button></li>
+        <li>  <%= link_to new_user_post_path(current_user.id) do %>
+            <button type="button" class="create-new-post-button">Create new post</button>
+          <% end %></li>
+        <li><%= button_to "LOG-OUT" , destroy_user_session_path, method: :delete, data: { turbo: false }, :class => 'logout'%></li>
+        <li>Your account: <%=current_user.name%></li>
+      </ul>
+    </nav>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>

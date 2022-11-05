@@ -7,13 +7,10 @@
           <img src=<%=user.photo%> alt='user-photo' class='user-img'>
         </div>
         <div class='user-info'>
-          <%= link_to user_path(user) do%>
-            <h2><%=user.name%></h2>
-            <h3>Number of Posts: <%=user.posts_counter%></h3>
-          </div>
-        </article>
-      <%end%>
+          <h2> <%= link_to user.name, user_path(user)%></h2>
+          <h3>Number of Posts: <%=user.posts_counter%></h3>
+        </div>
+      </article>
     <%end%>
   </div>
-  <%= button_to "log-out" , destroy_user_session_path, method: :delete%>
 </section>

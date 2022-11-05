@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # get 'users/index'
 
   resources :users, only: %i[index show] do
-    resources :posts, only: %i[index new create show] do
+    resources :posts, only: %i[index new create show destroy] do
       resources :comments, only: [:create]
       resources :likes, only: [:create]
     end

@@ -6,6 +6,6 @@ class Like < ApplicationRecord
   private
 
   def update_likes_counter
-    post.increment!(:LikesCounter)
+    post.update(LikesCounter: post.likes.count)
   end
 end

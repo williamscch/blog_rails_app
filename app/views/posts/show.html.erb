@@ -2,9 +2,12 @@
 <p>Here should be displayed the users selected post</p>
 <main>
   <section>
-    <%= link_to "Back", :back , :class => "link-pages" %>
+    <%= link_to "Back", user_posts_path , :class => "link-pages" %>
     <div>
       <div class="user-posts-post">
+        <% if can? :destroy, @post %>
+          <%= button_to "Delete this Post", user_post_path(@user, @post), method: :delete, data: { turbo_confirm: "Are you sure to delete" } %>
+        <% end %>
         <h3><%= @post.title %> by: <%= @post.user.name%></h3>
         <p><%= @post.text %></p>
         <span>Comments: <%= @post.CommentsCounter %></span>
